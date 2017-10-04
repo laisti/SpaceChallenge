@@ -1,15 +1,16 @@
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.util.Scanner;
+import java.io.File;
 
-public class Simulation {
+class Simulation {
 
-    public ArrayList loadItems(String filename) {
+    ArrayList loadItems(String filename) throws Exception {
         // Reads every line in .txt file
-        BufferedReader reader = new BufferedReader(new FileReader(filename));
-        String line = reader.readLine();
+        File file = new File(filename);
+        Scanner fileScanner = new Scanner(file);
         ArrayList items = new ArrayList();
-        while (line != null) {
+        while (fileScanner.hasNextLine()) {
+            String line = fileScanner.nextLine();
             String[] parts = line.split("=");
             String name = parts[0];
             int weight = Integer.parseInt(parts[1]);
@@ -18,23 +19,24 @@ public class Simulation {
             item.weight = weight;
             items.add(item);
         }
+        System.out.println(items);
         return items;
     }
 
-    public ArrayList loadU1(ArrayList items) {
+  /**  ArrayList loadU1(ArrayList items) {
         ArrayList rocketsU1 = new ArrayList();
         for (int i=0; i < items.size(); i++)
             rocketsU1.add(i);
         return rocketsU1;
     }
 
-    public ArrayList loadU2(ArrayList items) {
+    ArrayList loadU2(ArrayList items) {
         ArrayList rocketsU2 = new ArrayList();
         return rocketsU2;
 
     }
 
-    public int runSimulation(ArrayList rockets) {
+    int runSimulation(ArrayList rockets) {
         int totalBudget = 0;
 
         for (int r=0; r <= rockets.size(); r++) {
@@ -47,5 +49,5 @@ public class Simulation {
             }
         }
         return totalBudget;
-    }
+    } */
 }
