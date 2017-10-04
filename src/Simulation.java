@@ -23,10 +23,17 @@ class Simulation {
         return items;
     }
 
-  /**  ArrayList loadU1(ArrayList items) {
+    ArrayList loadU1(ArrayList items) {
         ArrayList rocketsU1 = new ArrayList();
-        for (int i=0; i < items.size(); i++)
-            rocketsU1.add(i);
+        U1 u1 = new U1();
+        for (item: items) {
+            if (u1.canCarry(item)) {
+                u1.carry(item);
+            } else {
+                U1 u2 = new U1();
+            }
+        }
+        rocketsU1.add();
         return rocketsU1;
     }
 
@@ -36,7 +43,7 @@ class Simulation {
 
     }
 
-    int runSimulation(ArrayList rockets) {
+    /**int runSimulation(ArrayList rockets) {
         int totalBudget = 0;
 
         for (int r=0; r <= rockets.size(); r++) {
