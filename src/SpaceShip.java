@@ -1,6 +1,7 @@
 public interface SpaceShip {
-    public boolean launch();
-    public boolean land();
-    public boolean canCarry();
-    public int carry();
+
+    boolean launch();
+    boolean land();
+    boolean canCarry(Item item);
+    int carry(Item item);
 }
