@@ -4,11 +4,11 @@ import java.io.File;
 
 class Simulation {
 
-    ArrayList loadItems(String filename) throws Exception {
+    ArrayList<Item> loadItems(String filename) throws Exception {
         // Reads every line in .txt file
         File file = new File(filename);
         Scanner fileScanner = new Scanner(file);
-        ArrayList items = new ArrayList();
+        ArrayList<Item> items = new ArrayList<Item>();
         while (fileScanner.hasNextLine()) {
             String line = fileScanner.nextLine();
             String[] parts = line.split("=");
@@ -23,17 +23,17 @@ class Simulation {
         return items;
     }
 
-    ArrayList loadU1(ArrayList items) {
-        ArrayList rocketsU1 = new ArrayList();
+    ArrayList<Rocket> loadU1(ArrayList<Item> items) {
+        ArrayList<Rocket> rocketsU1 = new ArrayList<Rocket>();
         U1 u1 = new U1();
-        for (item: items) {
+        for (Item item: items) {
             if (u1.canCarry(item)) {
                 u1.carry(item);
             } else {
                 U1 u2 = new U1();
             }
         }
-        rocketsU1.add();
+        rocketsU1.add(u1);
         return rocketsU1;
     }
 
