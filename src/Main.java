@@ -4,14 +4,14 @@ public class Main {
     public static void main(String [] args)  throws Exception {
         Simulation simulation = new Simulation();
 
-        ArrayList phase1 = simulation.loadItems("phase-1.txt");
-        ArrayList phase2 = simulation.loadItems("phase-2.txt");
+        ArrayList<Item> phase1 = simulation.loadItems("phase-1.txt");
+        ArrayList<Item> phase2 = simulation.loadItems("phase-2.txt");
 
-        /** // U1 rockets
-        ArrayList phase1RocketsU1 = simulation.loadU1(phase1);
-        ArrayList phase2RocketsU1 = simulation.loadU1(phase2);
+        // U1 rockets
+        ArrayList<Rocket> phase1RocketsU1 = simulation.loadU1(phase1);
+        //ArrayList phase2RocketsU1 = simulation.loadU1(phase2);
 
-        int totalBudgetPhase1U1 = simulation.runSimulation(phase1RocketsU1);
+        /**int totalBudgetPhase1U1 = simulation.runSimulation(phase1RocketsU1);
         int totalBudgetPhase2U1 = simulation.runSimulation(phase2RocketsU1);
         int totalBudgetU1 = totalBudgetPhase1U1 + totalBudgetPhase2U1;
 

@@ -2,12 +2,15 @@ import java.lang.Math;
 
 public class U2 extends Rocket {
 
-    int cost = 120;
-    private int rocketWeight = 18000;
-    private int maxRocketWeight = 29000;
+    private int rocketCost;
 
-    private int launchExplosion = 4 * ((maxRocketWeight - rocketWeight) / maxRocketWeight);
-    private int landCrash = 8 * ((maxRocketWeight - rocketWeight) / maxRocketWeight);
+    U2(int cost, int rocketWeight, int maxRocketWeight){
+        super(rocketWeight, maxRocketWeight);
+        rocketCost = cost;
+    }
+
+    private int launchExplosion = 4 * ((maxWeight - weight) / maxWeight);
+    private int landCrash = 8 * (maxWeight - weight) / maxWeight;
 
     public boolean launch() {
         return launchExplosion <= 100 * Math.random();
