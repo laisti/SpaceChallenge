@@ -23,18 +23,21 @@ class Simulation {
     }
 
     ArrayList<Rocket> loadU1(ArrayList<Item> items) {
+        int j = 0;
         ArrayList<Rocket> rocketsU1 = new ArrayList<Rocket>();
-        for (int i = 0; i < items.size(); i++) {
+        while (!items.isEmpty()) {
             U1 u1 = new U1(100, 100000, 180000);
-            while (u1.weight != u1.maxWeight) {
-                if (u1.canCarry(items.get(i))) {
-                    u1.carry(items.get(i));
+            for (int i = 0; i < items.size(); i++) {
+                if (u1.weight != u1.maxWeight) {
+                    if (u1.canCarry(items.get(i))) {
+                        u1.carry(items.get(i));
+                    }
                 }
                 else {
-                    break;
+                    rocketsU1.add(u1);
+                    u1.weight = 100000;
                 }
             }
-            rocketsU1.add(u1);
         }
         System.out.println(rocketsU1);
         return rocketsU1;

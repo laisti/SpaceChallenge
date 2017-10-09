@@ -9,7 +9,7 @@ public class Main {
 
         // U1 rockets
         ArrayList<Rocket> phase1RocketsU1 = simulation.loadU1(phase1);
-        //ArrayList phase2RocketsU1 = simulation.loadU1(phase2);
+        ArrayList phase2RocketsU1 = simulation.loadU1(phase2);
 
         /**int totalBudgetPhase1U1 = simulation.runSimulation(phase1RocketsU1);
         int totalBudgetPhase2U1 = simulation.runSimulation(phase2RocketsU1);
