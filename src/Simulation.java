@@ -37,7 +37,6 @@ class Simulation {
             }
             rocketsU1.add(u1);
         }
-        System.out.println(rocketsU1);
         return rocketsU1;
     }
 
@@ -46,7 +45,7 @@ class Simulation {
         int i = 0;
 
         while (i < items.size()) {
-            U2 u2 = new U2(100, 100000, 180000);
+            U2 u2 = new U2(120, 180000, 290000);
             while (u2.canCarry(items.get(i))) {
                 u2.carry(items.get(i));
                 i++;
@@ -56,22 +55,35 @@ class Simulation {
             }
             rocketsU2.add(u2);
         }
-        System.out.println(rocketsU2);
         return rocketsU2;
     }
 
-    /**int runSimulation(ArrayList rockets) {
+    int runSimulation(ArrayList<Rocket> rockets) {
         int totalBudget = 0;
+        int count = 0;
 
-        for (int r=0; r <= rockets.size(); r++) {
-            boolean launch = rockets.get(r).launch();
-            boolean land = rockets.get(r).land();
-            totalBudget *= r;
+        for (Rocket r: rockets) {
+            boolean launch = r.launch();
+            boolean land = r.land();
+            if (r.land()) {
+                launch = true;
+            }
+            else {
+                land = false;
+            }
+
             while (!launch || !land) {
-                rockets.get(r).launch();
-                totalBudget *= r;
+                count++;
+                totalBudget += r.cost;
+                launch = r.launch();
+                land = r.land();
+            }
+
+            if (launch && land) {
+                    count++;
+                    totalBudget += r.cost;
             }
         }
         return totalBudget;
-    } */
+    }
 }
