@@ -23,21 +23,19 @@ class Simulation {
     }
 
     ArrayList<Rocket> loadU1(ArrayList<Item> items) {
-        int j = 0;
         ArrayList<Rocket> rocketsU1 = new ArrayList<Rocket>();
-        while (!items.isEmpty()) {
+        int i = 0;
+
+        while (i < items.size()) {
             U1 u1 = new U1(100, 100000, 180000);
-            for (int i = 0; i < items.size(); i++) {
-                if (u1.weight != u1.maxWeight) {
-                    if (u1.canCarry(items.get(i))) {
-                        u1.carry(items.get(i));
-                    }
-                }
-                else {
-                    rocketsU1.add(u1);
-                    u1.weight = 100000;
+            while (u1.canCarry(items.get(i))) {
+                u1.carry(items.get(i));
+                i++;
+                if (i == items.size()) {
+                    break;
                 }
             }
+            rocketsU1.add(u1);
         }
         System.out.println(rocketsU1);
         return rocketsU1;
@@ -45,13 +43,19 @@ class Simulation {
 
     ArrayList<Rocket> loadU2(ArrayList<Item> items) {
         ArrayList<Rocket> rocketsU2 = new ArrayList<Rocket>();
-        U2 u2 = new U2(120, 180000, 290000);
-        for (int i = 0; i < items.size(); i++) {
-            if (u2.canCarry(items.get(i))) {
+        int i = 0;
+
+        while (i < items.size()) {
+            U2 u2 = new U2(100, 100000, 180000);
+            while (u2.canCarry(items.get(i))) {
                 u2.carry(items.get(i));
+                i++;
+                if (i == items.size()) {
+                    break;
+                }
             }
+            rocketsU2.add(u2);
         }
-        rocketsU2.add(u2);
         System.out.println(rocketsU2);
         return rocketsU2;
     }

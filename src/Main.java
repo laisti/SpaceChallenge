@@ -15,13 +15,13 @@ public class Main {
         int totalBudgetPhase2U1 = simulation.runSimulation(phase2RocketsU1);
         int totalBudgetU1 = totalBudgetPhase1U1 + totalBudgetPhase2U1;
 
-        System.out.println(totalBudgetU1);
+        System.out.println(totalBudgetU1);*/
 
         // U2 rockets
         ArrayList phase1RocketsU2 = simulation.loadU2(phase1);
         ArrayList phase2RocketsU2 = simulation.loadU2(phase2);
 
-        int totalBudgetPhase1U2 = simulation.runSimulation(phase1RocketsU2);
+        /**int totalBudgetPhase1U2 = simulation.runSimulation(phase1RocketsU2);
         int totalBudgetPhase2U2 = simulation.runSimulation(phase2RocketsU2);
         int totalBudgetU2 = totalBudgetPhase1U2 + totalBudgetPhase2U2;
 
